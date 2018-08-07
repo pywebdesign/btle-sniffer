@@ -33,7 +33,7 @@ class GATTCharacteristic(object):
         self.uuid = uuid
         self.value = value
         self.flags = flags
-        self.descriptors: MutableMapping[str, GATTDescriptor] = dict()
+        self.descriptors= MutableMapping[str, GATTDescriptor] = dict()
 
     def __str__(self):
         name = uuid_to_string(self.uuid)
@@ -55,7 +55,7 @@ class GATTService(object):
     def __init__(self, uuid: str, primary: bool):
         self.uuid = uuid
         self.primary = primary
-        self.characteristics: MutableMapping[str, GATTCharacteristic] = dict()
+        self.characteristics= MutableMapping[str, GATTCharacteristic] = dict()
 
     def __str__(self):
         name = uuid_to_string(self.uuid)
@@ -183,7 +183,7 @@ class Device(object):
         self.tx_power = tx_power
         self.first_seen = datetime.datetime.now()
         self.last_seen = datetime.datetime.now()
-        self.services: MutableMapping[str, GATTService] = dict()
+        self.services= MutableMapping[str, GATTService] = dict()
 
         self.manufacturer_data = dict()
         if manufacturer_data is not None:
